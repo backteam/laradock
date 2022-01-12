@@ -620,23 +620,6 @@ services:
       networks:
         - backend
 
-### PostgreSQL PostGis ###################################
-    postgres-postgis:
-      build:
-        context: ./postgres-postgis
-        args:
-          - POSTGRES_VERSION=${POSTGRES_VERSION}   
-          - INSTALL_PGSQL_HTTP_FOR_POSTGIS13=${POSTGIS_INSTALL_PGSQL_HTTP_FOR_POSTGIS13}
-      volumes:
-        - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
-      ports:
-        - "${POSTGRES_PORT}:5432"
-      environment:
-        - POSTGRES_DB=${POSTGRES_DB}
-        - POSTGRES_USER=${POSTGRES_USER}
-        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      networks:
-        - backend
 
 ### Neo4j ################################################
     neo4j:
